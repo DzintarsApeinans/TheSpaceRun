@@ -6,6 +6,7 @@ public class Player : MonoBehaviour {
 
     public GameObject particalSystem;
     public GameObject teleportEffect;
+    public GameObject deadEffect;
     public Animator anim;
     public Text[] scoreTexts;
     public LayerMask whatIsGround;
@@ -171,6 +172,7 @@ public class Player : MonoBehaviour {
         //game over condition + best score saving
         anim.SetTrigger("isGameOver");
         scoreTexts[0].text = score.ToString();
+        Instantiate(deadEffect, transform.position, Quaternion.identity);
         int bestScore = PlayerPrefs.GetInt("BestScore", 0);
         if (score > bestScore)
         {

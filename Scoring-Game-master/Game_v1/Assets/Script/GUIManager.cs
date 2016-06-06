@@ -15,6 +15,18 @@ public class GUIManager : MonoBehaviour {
     private float nativeWidth = 1280; //1920
     private float nativeHeight = 720; //1080
 
+    void Awake()
+    {
+        if (AudioListener.volume == 1)
+        {
+            muteToggle = false;
+        }
+        else
+        {
+            muteToggle = true;
+        }
+    }
+
 	// Use this for initialization
 	void Start () {
         GameEventManager.GameStart += GameStart;
@@ -76,8 +88,6 @@ public class GUIManager : MonoBehaviour {
     private void GameOver()
     {      
         player.GameOver();
-        muteToggle = false;
-        ToggleMute();
         enabled = true;
     }
 
