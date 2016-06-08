@@ -7,8 +7,8 @@ public class GUIManager : MonoBehaviour {
     public GUIText gameStartText, toStartText, instructionsText, pauseText;
     public GUITexture background;
 
-    public Text gameName, gamePause, gameInstruction, toStart;
-    public Image gameBackground, moonSprite;
+    public Text gameName, gamePause, gameInstruction, toStart, start, movement, quit;
+    public Image gameBackground, moonSprite, panel;
 
     private Player player;
     private bool muteToggle = false;
@@ -82,6 +82,10 @@ public class GUIManager : MonoBehaviour {
         toStart.enabled = false;
         gameBackground.enabled = false;
         moonSprite.enabled = false;
+        panel.enabled = false;
+        start.enabled = false;
+        movement.enabled = false;
+        quit.enabled = false;
 
         //enabled = false;
     }
