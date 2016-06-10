@@ -4,11 +4,8 @@ using System.Collections;
 
 public class GUIManager : MonoBehaviour {
 
-    public GUIText gameStartText, toStartText, instructionsText, pauseText;
-    public GUITexture background;
-
-    public Text gameName, gamePause, gameInstruction, toStart, start, movement, quit;
-    public Image gameBackground, moonSprite, panel;
+    public Text gameName, gamePause;
+    public Image  waitingPanel, pausePanel;
 
     private Player player;
     private bool muteToggle = false;
@@ -34,8 +31,8 @@ public class GUIManager : MonoBehaviour {
 
         player = GameObject.FindObjectOfType<Player>();
 
-        pauseText.enabled = false;
         gamePause.enabled = false;
+        pausePanel.enabled = false;
 	}
 
 	// Update is called once per frame
@@ -70,24 +67,14 @@ public class GUIManager : MonoBehaviour {
 
     private void GameStart()
     {        
-        //GUI
-        gameStartText.enabled = false;
-        toStartText.enabled = false;
-        instructionsText.enabled = false;
-        background.enabled = false;
+        //UI Canvas disapearing after game start trigger
+        gameName.enabled = false;        
+        waitingPanel.enabled = false;
+    }
 
-        //UI Canvas
-        gameName.enabled = false;
-        gameInstruction.enabled = false;
-        toStart.enabled = false;
-        gameBackground.enabled = false;
-        moonSprite.enabled = false;
-        panel.enabled = false;
-        start.enabled = false;
-        movement.enabled = false;
-        quit.enabled = false;
-
-        //enabled = false;
+    public void BestScoreReset()
+    {
+        PlayerPrefs.DeleteAll();
     }
 
     private void GameOver()

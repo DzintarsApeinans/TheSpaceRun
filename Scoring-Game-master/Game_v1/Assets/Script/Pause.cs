@@ -16,7 +16,7 @@ public class Pause : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
         {
             isPause = TogglePause();
-            guiManager.pauseText.enabled = false;
+            guiManager.gamePause.enabled = false;
         }            
     }
 
@@ -24,7 +24,7 @@ public class Pause : MonoBehaviour {
     {
         if (isPause)
         {
-            guiManager.pauseText.enabled = true;
+            guiManager.gamePause.enabled = true;
         }
     }
 

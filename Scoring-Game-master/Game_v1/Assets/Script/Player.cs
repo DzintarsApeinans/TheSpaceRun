@@ -31,9 +31,6 @@ public class Player : MonoBehaviour {
         enabled = false;
 
         guiManager = GameObject.FindObjectOfType<GUIManager>();
-
-        //TODO delete line below later, this line is used to delete all info in PlayerPrefs
-        //PlayerPrefs.DeleteAll();
 	}
 	
 	// Update is called once per frame
@@ -60,8 +57,8 @@ public class Player : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
         {
             isPause = TogglePause();
-            guiManager.pauseText.enabled = false;
             guiManager.gamePause.enabled = false;
+            guiManager.pausePanel.enabled = false;
         } 
         else
         //moving left condition
@@ -142,26 +139,6 @@ public class Player : MonoBehaviour {
         }
     }
 
-    /*void OnTriggerExit(Collider collider)
-    {
-        if (collider.tag == "Tile" || collider.tag == "LeftTile" || collider.tag == "RightTile" || collider.tag == "TopTile")
-        {
-            RaycastHit hit;
-            Ray downRay = new Ray(transform.position, -Vector3.up);
-
-            if (!Physics.Raycast(downRay, out hit))
-            {
-                //Debug.Log("Player is Dead");
-                isDead = true;
-                GameOver();
-                if (transform.childCount > 0)
-                {
-                    transform.GetChild(0).transform.parent = null;
-                }    
-            }
-        }
-    }*/
-
     private void GameStart()
     {
         enabled = true;
@@ -209,8 +186,8 @@ public class Player : MonoBehaviour {
     {
         if (isPause)
         {
-            guiManager.pauseText.enabled = true;
             guiManager.gamePause.enabled = true;
+            guiManager.pausePanel.enabled = true;
         }
     }
 
