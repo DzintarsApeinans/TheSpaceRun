@@ -89,10 +89,10 @@ public class TileManager : MonoBehaviour {
             rightTiles.Peek().SetActive(false);
             rTopTiles.Peek().SetActive(false);
 
-            leftTiles.Peek().name = "LeftTile";
-            lTopTiles.Peek().name = "LTopTile";
-            rightTiles.Peek().name = "RightTile";
-            rTopTiles.Peek().name = "RTopTile";
+            leftTiles.Peek().name = "LeftTile(Clone)";
+            lTopTiles.Peek().name = "LTopTile(Clone)";
+            rightTiles.Peek().name = "RightTile(Clone)";
+            rTopTiles.Peek().name = "RTopTile(Clone)";
         }
     }
 
@@ -120,7 +120,7 @@ public class TileManager : MonoBehaviour {
         //spawning tiles with teleports and bonus score object 
         if (tile == currentTile)
         {
-            //spawn tiles to left or top
+            //spawn tiles to left or top and collectible items on it
             if (randomLeft == 0)
             {
                 currentTile = Instantiate(tilePrefabs[0], currentTile.transform.GetChild(0).transform.GetChild(0).position, Quaternion.identity) as GameObject;
@@ -188,7 +188,7 @@ public class TileManager : MonoBehaviour {
         }
         else if (next == currentTile)
         {
-            //spawn tiles to top with condition parameter which decide to turn right/left
+            //spawn tiles to top with condition parameter which decide to turn right/left and collectible items on it
             if (randomTop == 0)
             {
                 currentTile = Instantiate(tilePrefabs[1], currentTile.transform.GetChild(0).transform.GetChild(1).position, Quaternion.identity) as GameObject;
@@ -204,7 +204,7 @@ public class TileManager : MonoBehaviour {
         }
         else if (nextRight == currentTile)
         {
-            //spawn tiles to right or top
+            //spawn tiles to right or top and collectible items on it
             if (randomRight == 0)
             {
                 currentTile = Instantiate(tilePrefabs[2], currentTile.transform.GetChild(0).transform.GetChild(0).position, Quaternion.identity) as GameObject;

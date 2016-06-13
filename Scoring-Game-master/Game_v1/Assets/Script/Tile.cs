@@ -76,7 +76,7 @@ public class Tile : MonoBehaviour {
     }
 
     IEnumerator ChangeTileColor()
-    {
+    {//change tile color after 2 seconds when player left it
         yield return new WaitForSeconds(2.0f);
         renderer.material.color = Color.gray;
     }

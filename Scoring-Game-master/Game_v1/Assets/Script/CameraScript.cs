@@ -13,11 +13,6 @@ public class CameraScript : MonoBehaviour {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         relCameraPos = player.position - transform.position;
     }
-
-	// Use this for initialization
-	void Start () {
-
-	}
 	
 	// Update is called once per frame
 	void Update () {

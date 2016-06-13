@@ -40,6 +40,8 @@ public class GUIManager : MonoBehaviour {
         if (Input.GetButtonDown("Jump"))
         {
             GameEventManager.TriggerGameStart();
+            player.dir = Vector3.forward;
+            player.isPlaying = true;
         }            
 	}
 
@@ -70,11 +72,6 @@ public class GUIManager : MonoBehaviour {
         //UI Canvas disapearing after game start trigger
         gameName.enabled = false;        
         waitingPanel.enabled = false;
-    }
-
-    public void BestScoreReset()
-    {
-        PlayerPrefs.DeleteAll();
     }
 
     private void GameOver()

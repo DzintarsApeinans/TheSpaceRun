@@ -11,18 +11,18 @@ public class Player : MonoBehaviour {
     public Text[] scoreTexts;
     public LayerMask whatIsGround;
     public Transform contactPoint;
+    public Image scorePanel;
 
     private float speed = 1.5f;    
     private int score = 0;
     private bool isDead = false;
-    private bool isPlaying = false;
+    public bool isPlaying = false;
     private bool isPause;
-    private Vector3 dir;
+    public Vector3 dir;
     private GUIManager guiManager;
 
 	// Use this for initialization
-	void Start () {
-       
+	void Start () {       
         dir = Vector3.zero;
 
         GameEventManager.GameStart += GameStart;
@@ -37,7 +37,7 @@ public class Player : MonoBehaviour {
 	void Update () {
         float amountToMove = speed * Time.deltaTime;
 
-        //increasing object(player) speed each frame
+        //increasing object(player) movement speed each frame
         speed += Time.deltaTime;
 
         //player dead condition
@@ -158,6 +158,7 @@ public class Player : MonoBehaviour {
         }
         scoreTexts[1].text = PlayerPrefs.GetInt("BestScore", 0).ToString();
         scoreTexts[3].gameObject.SetActive(false);
+        scorePanel.enabled = false;
 
         enabled = false;
     }
